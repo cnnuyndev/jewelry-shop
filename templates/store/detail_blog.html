@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+
+    {% block content %}
+
+      <section class="py-5">
+        <div class="container">
+          <div class="row mb-5">
+            <div class="col-lg-12">
+              <!-- PRODUCT SLIDER-->
+              <h1>{{blog.title}}</h1>
+              <h5>{{blog.created_at}}</h5>
+              <p class="text-dark lead text-justify">{{blog.short_description}}</p>
+              <div class="row m-sm-0 justify-content-center">
+                <div class="col-sm-8 order-1 order-sm-2">
+                  <div class="owl-carousel product-slider" data-slider-id="1">
+                    {% if blog.blog_image %}
+                      <a class="d-block" href="{{blog.blog_image.url}}" data-lightbox="product" title="{{blog.title}}"><img class="img-fluid" src="{{blog.blog_image.url}}" alt="{{blog.title}}"></a>
+                      {% else %}
+                      <a class="d-block" href="{% static 'img/product-detail-1.jpg' %}" data-lightbox="product" title="{{blog.title}}"><img class="img-fluid" src="{% static 'img/product-detail-1.jpg' %}" alt="{{blog.title}}"></a>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- PRODUCT DETAILS-->
+            <div class="col-lg-12 justify-content-center">
+                <br>
+              <p class="text-justify font-weight-normal mb-4">{{blog.detail_description}}</p>
+            </div>
+          </div>
+          <!-- DETAILS TABS-->
+          <!-- RELATED PRODUCTS-->
+          <h2 class="h5 text-uppercase mb-4">Các bài viết tương tự</h2>
+          <div class="row">
+            {% if related_blogs %}
+              {% for rp in related_blogs %}
+                <!-- PRODUCT-->
+                <div class="col-lg-3 col-sm-6">
+                  <div class="product text-center skel-loader">
+                    <div class="d-block mb-3 position-relative">
+                      {% comment %} <a class="d-block" href="{% url 'store:blog-detail' rp.slug %}"> {% endcomment %}
+                        {% if rp.blog_image %}
+                          <img class="img-fluid w-100" src="{{rp.blog_image.url}}" alt="{{rp.title}}">
+                        {% else %}
+                        <img class="img-fluid w-100" src="{% static 'img/product-1.jpg' %}" alt="{{rp.title}}">
+                        {% endif %}
+                      {% comment %} </a> {% endcomment %}
+                    </div>
+                    <h6> <a class="reset-anchor" href="{% url 'store:blog-detail' rp.slug %}">{{rp.title}}</a></h6>
+                  </div>
+                </div>
+              {% endfor %}
+            {% endif %}
+          </div>
+        </div>
+      </section>
+      {% endblock content %}

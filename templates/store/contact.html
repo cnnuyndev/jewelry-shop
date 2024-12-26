@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- Start Contact Us  -->
+<div class="contact-box-main">
+    <section class="py-5 bg-light">
+        <div class="container">
+          <div class="row px-4 px-lg-5 py-lg-4 align-items-center">
+            <div class="col-lg-6">
+              <h1 class="h2 text-uppercase mb-0">Shop - Liên Hệ</h1>
+            </div>
+            <div class="col-lg-6 text-lg-right">
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-lg-end mb-0 px-0">
+                  <li class="breadcrumb-item"><a href="{% url 'store:home' %}">Home</a></li>
+                  <li class="breadcrumb-item"><a href="{% url 'store:contact' %}">Liên Hệ</a></li> </ol>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </section>
+      <br>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-sm-12">
+                <div class="contact-info-left">
+                    <h2>Liên Hệ</h2>
+                    <div class="row example mb-5">
+                    </div>
+                    <div class="contact-info mb-3">
+                            <p><i class="fas fa-map-marker-alt"></i> Địa chỉ: 102 Hùng Vương, Phường An Mỹ, TP Tam Kỳ, Tỉnh Quảng Nam </p>
+                    </div>
+                    <div class="row example mb-3">
+                    </div>
+                    <div class="contact-info mb-3">
+                            <p><i class="fas fa-phone-square"></i> Số điện thoại: <a href="tel:0348486232">0347486232</a></p>
+                    </div>
+                    <div class="row example mb-3">
+                    </div>
+                    <div class="contact-info mb-3">
+                            <p><i class="fas fa-envelope"></i> Email: <a href="/cdn-cgi/l/email-protection#41222e2f35202235282f272e01262c20282d6f222e2c"><span class="__cf_email__" data-cfemail="65060a0b110406110c0b030a250208040c094b060a08">caonguyen456@gmail.com</span></a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-sm-12">
+                <div class="contact-form-right">
+                    <h2>Liên Lạc</h2>
+                    <form id="contactForm">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="name" name="name" placeholder="Nhập họ tên" required="" data-error="Nhập họ tên"/>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <input type="text" placeholder="Nhập địa chỉ email" id="email" class="form-control" name="name" required="" data-error="Nhập địa chỉ email"/>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <textarea class="form-control" id="message" placeholder="Nhập nội dung" rows="4" data-error="Nhập nội dung" required=""></textarea>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                                <div class="submit-button text-center">
+                                    <button class="btn btn-primary" id="submit" type="submit">Gửi</button>
+                                    <div id="msgSubmit" class="h3 text-center hidden"></div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% comment %} <div id="map-container-google-2" class="z-depth-1-half map-container" style="height: 500px, width:100%">
+    <iframe src="https://maps.google.com/maps?q=chicago&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0"
+      style="border:0" allowfullscreen></iframe>
+</div> {% endcomment %}
+</body>
+    
+{% endblock content %}
